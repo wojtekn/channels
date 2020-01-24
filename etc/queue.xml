@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2020 Wojciech Naruniec (https://naruniec.me/). All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/queue.xsd">
+    <broker topic="crazycall.customer.export" exchange="magento-db" type="db">
+        <queue name="crazycall.customer.export" consumer="crazycallCustomerExport"/>
+    </broker>
+</config>

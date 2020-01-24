@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2020 Wojciech Naruniec (https://naruniec.me/). All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+    <topic name="crazycall.customer.export" request="Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterface">
+        <handler name="crazycallCustomerExport" type="Wojtekn\CrazyCall\Model\Queue\Consumer\CustomerExportConsumer" method="process" />
+    </topic>
+</config>

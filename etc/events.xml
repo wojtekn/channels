@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2020 Wojciech Naruniec (https://naruniec.me/). All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_save_after_data_object">
+        <observer name="CrazyCallCustomerAfterSaveObserver"
+                  instance="Wojtekn\CrazyCall\Observer\CustomerSave" />
+    </event>
+</config>
