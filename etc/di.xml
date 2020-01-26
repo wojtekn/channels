@@ -3,6 +3,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
+    <preference for="Wojtekn\CrazyCall\Api\Data\EntityMappingInterface" type="Wojtekn\CrazyCall\Model\EntityMapping"/>
+    <preference for="Wojtekn\CrazyCall\Api\Data\EntityMappingSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Wojtekn\CrazyCall\Api\EntityMappingRepositoryInterface" type="Wojtekn\CrazyCall\Model\EntityMappingRepository" />
+
     <preference for="Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterface"
                 type="Wojtekn\CrazyCall\Model\Queue\Message\CustomerExportMessage" />
 

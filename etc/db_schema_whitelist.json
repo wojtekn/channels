@@ -1,0 +1,14 @@
+{
+    "crazycall_mapping": {
+        "column": {
+            "id": true,
+            "internal_id": true,
+            "external_id": true,
+            "object_type": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CRAZYCALL_MAPPING_INTERNAL_ID_EXTERNAL_ID_OBJECT_TYPE": true
+        }
+    }
+}
