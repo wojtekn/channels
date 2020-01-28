@@ -46,6 +46,14 @@
                     </depends>
                     <comment>Which address type should be used to get phone number from.</comment>
                 </field>
+                <field id="debug" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Debug</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Enable debug mode to log API request and response in the crazy-call-debug.log file.</comment>
+                </field>
             </group>
         </section>
     </system>

@@ -18,6 +18,7 @@ class Config
     const CONFIG_XML_API_ACCOUNT = 'crazycall/connector/api_account';
     const CONFIG_XML_API_KEY = 'crazycall/connector/api_key';
     const CONFIG_XML_API_URL = 'crazycall/connector/api_url';
+    const CONFIG_XML_API_DEBUG = 'crazycall/connector/debug';
     const CONFIG_XML_API_ENABLED = 'crazycall/connector/enabled';
 
     /**
@@ -100,6 +101,20 @@ class Config
             ScopeInterface::SCOPE_WEBSITE,
             $websiteId
         ) . $this->apiUrls[$type];
+    }
+
+    /**
+     * Checks if extension debug mode is enabled
+     *
+     * @return bool
+     */
+    public function isDebugEnabled(): bool
+    {
+        if ($this->scopeConfig->getValue(self::CONFIG_XML_API_DEBUG)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
