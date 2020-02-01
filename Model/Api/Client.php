@@ -84,7 +84,6 @@ class Client
             /** @var ZendClient $client */
             $client = $this->clientFactory->create();
             $client->setUri($this->config->getApiUrl() . $apiPath);
-            //$client->setUri('http://httpstat.us/200?sleep=5000');
             $client->setConfig([
                 'maxredirects' => 0,
                 'timeout' => 30,

@@ -6,8 +6,13 @@ declare(strict_types=1);
 
 namespace Wojtekn\CrazyCall\Model\Queue\Consumer;
 
+use Magento\Framework\Exception\AlreadyExistsException;
+use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\MessageQueue\PublisherInterface;
 use Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterface;
+use Wojtekn\CrazyCall\Api\Data\EntityMappingInterface;
+use Wojtekn\CrazyCall\Api\Data\EntityMappingInterfaceFactory;
+use Wojtekn\CrazyCall\Api\EntityMappingRepositoryInterface;
 use Wojtekn\CrazyCall\Exception\ApiFailedButRetryException;
 use Wojtekn\CrazyCall\Exception\ApiFailedException;
 use Wojtekn\CrazyCall\Logger\Logger;
@@ -32,6 +37,16 @@ class CustomerExportConsumer
     private $customerExportRequestFactory;
 
     /**
+     * @var EntityMappingInterfaceFactory
+     */
+    private $entityMappingFactory;
+
+    /**
+     * @var EntityMappingRepositoryInterface
+     */
+    private $entityMappingRepository;
+
+    /**
      * @var Logger
      */
     private $logger;
@@ -44,17 +59,23 @@ class CustomerExportConsumer
     /**
      * @param Config $config
      * @param CustomerExportRequestFactory $customerExportRequestFactory
+     * @param EntityMappingInterfaceFactory $entityMappingFactory
+     * @param EntityMappingRepositoryInterface $entityMappingRepository
      * @param Logger $logger
      * @param PublisherInterface $publisher
      */
     public function __construct(
         Config $config,
         CustomerExportRequestFactory $customerExportRequestFactory,
+        EntityMappingInterfaceFactory $entityMappingFactory,
+        EntityMappingRepositoryInterface $entityMappingRepository,
         Logger $logger,
         PublisherInterface $publisher
     ) {
         $this->config = $config;
         $this->customerExportRequestFactory = $customerExportRequestFactory;
+        $this->entityMappingFactory = $entityMappingFactory;
+        $this->entityMappingRepository = $entityMappingRepository;
         $this->logger = $logger;
         $this->publisher = $publisher;
     }
@@ -72,7 +93,16 @@ class CustomerExportConsumer
             $customerExportRequest = $this->customerExportRequestFactory->create();
             $response = $customerExportRequest->send($message);
 
-            // @todo get id from $response here and add mapping to db table
+            $entityMapping = $this->entityMappingFactory->create();
+            $entityMapping->setObjectType(EntityMappingInterface::TYPE_CUSTOMER);
+            $entityMapping->setInternalId($message->getCustomerId());
+            $entityMapping->setExternalId($response['id']);
+
+            try {
+                $this->entityMappingRepository->save($entityMapping);
+            } catch (AlreadyExistsException | CouldNotSaveException $e) {
+                // intentionally omitted - it means that mapping for this customer already exists
+            }
 
             $this->logger->debug(sprintf('Job finished successfully.'));
         } catch (ApiFailedException $exception) {

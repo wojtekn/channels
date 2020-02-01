@@ -42,9 +42,9 @@ class EntityMapping extends AbstractModel implements EntityMappingInterface
     /**
      * @inheritdoc
      */
-    public function getObjectType(): string
+    public function getObjectType(): int
     {
-        return $this->getData(EntityMappingInterface::FIELD_OBJECT_TYPE);
+        return (int) $this->getData(EntityMappingInterface::FIELD_OBJECT_TYPE);
     }
 
     /**
@@ -66,7 +66,7 @@ class EntityMapping extends AbstractModel implements EntityMappingInterface
     /**
      * @inheritdoc
      */
-    public function setObjectType(string $objectType)
+    public function setObjectType(int $objectType)
     {
         return $this->setData(EntityMappingInterface::FIELD_OBJECT_TYPE, $objectType);
     }

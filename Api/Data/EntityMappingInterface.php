@@ -19,6 +19,8 @@ interface EntityMappingInterface
     const FIELD_INTERNAL_ID = 'internal_id';
     const FIELD_OBJECT_TYPE = 'object_type';
 
+    const TYPE_CUSTOMER = 1;
+
     /**
      * Return the external id of mapping entry
      *
@@ -36,9 +38,9 @@ interface EntityMappingInterface
     /**
      * Return the object type of mapping entry
      *
-     * @return string
+     * @return int
      */
-    public function getObjectType(): string;
+    public function getObjectType(): int;
 
     /**
      * Set the id of the external
@@ -59,8 +61,8 @@ interface EntityMappingInterface
     /**
      * Set the object type of mapping entry
      *
-     * @param string $objectType
+     * @param int $objectType
      * @return $this
      */
-    public function setObjectType(string $objectType);
+    public function setObjectType(int $objectType);
 }
