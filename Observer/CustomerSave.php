@@ -11,7 +11,7 @@ use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Customer\Model\Address\AbstractAddress;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Psr\Log\LoggerInterface;
+use Wojtekn\CrazyCall\Logger\Logger;
 use Wojtekn\CrazyCall\Model\Config;
 use Wojtekn\CrazyCall\Model\CustomerExportScheduler;
 
@@ -28,19 +28,19 @@ class CustomerSave implements ObserverInterface
     private $customerExportScheduler;
 
     /**
-     * @var LoggerInterface
+     * @var Logger
      */
     private $logger;
 
     /**
      * @param Config $config
      * @param CustomerExportScheduler $customerExportScheduler
-     * @param LoggerInterface $logger
+     * @param Logger $logger
      */
     public function __construct(
         Config $config,
         CustomerExportScheduler $customerExportScheduler,
-        LoggerInterface $logger
+        Logger $logger
     ) {
         $this->config = $config;
         $this->customerExportScheduler = $customerExportScheduler;
@@ -63,7 +63,7 @@ class CustomerSave implements ObserverInterface
             return;
         }
 
-        $this->logger->info(sprintf(
+        $this->logger->debug(sprintf(
             'Scheduling customer #%d for export (CUSTOMER changed)',
             (int) $customer->getId()
         ));

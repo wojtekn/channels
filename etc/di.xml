@@ -10,36 +10,12 @@
     <preference for="Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterface"
                 type="Wojtekn\CrazyCall\Model\Queue\Message\CustomerExportMessage" />
 
-    <virtualType name="Wojtekn\CrazyCall\Logger\CrazyCallLoggerVirtualType" type="Monolog\Logger">
+    <type name="Wojtekn\CrazyCall\Logger\Logger">
         <arguments>
             <argument name="name" xsi:type="string">CrazyCall</argument>
             <argument name="handlers" xsi:type="array">
                 <item name="standard" xsi:type="object">Wojtekn\CrazyCall\Logger\Handler\CrazyCall</item>
             </argument>
-        </arguments>
-    </virtualType>
-
-    <type name="Wojtekn\CrazyCall\Model\Api\Client">
-        <arguments>
-            <argument name="requestLogger" xsi:type="object">Wojtekn\CrazyCall\Logger\CrazyCallLoggerVirtualType</argument>
-        </arguments>
-    </type>
-
-    <type name="Wojtekn\CrazyCall\Observer\CustomerSave">
-        <arguments>
-            <argument name="logger" xsi:type="object">Wojtekn\CrazyCall\Logger\CrazyCallLoggerVirtualType</argument>
-        </arguments>
-    </type>
-
-    <type name="Wojtekn\CrazyCall\Plugin\AddressSave">
-        <arguments>
-            <argument name="logger" xsi:type="object">Wojtekn\CrazyCall\Logger\CrazyCallLoggerVirtualType</argument>
-        </arguments>
-    </type>
-
-    <type name="Wojtekn\CrazyCall\Model\CustomerExportScheduler">
-        <arguments>
-            <argument name="logger" xsi:type="object">Wojtekn\CrazyCall\Logger\CrazyCallLoggerVirtualType</argument>
         </arguments>
     </type>
 

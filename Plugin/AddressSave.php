@@ -11,7 +11,7 @@ use Magento\Customer\Model\Address\AbstractAddress;
 use Magento\Customer\Model\CustomerRegistry;
 use Magento\Customer\Model\ResourceModel\AddressRepository;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Psr\Log\LoggerInterface;
+use Wojtekn\CrazyCall\Logger\Logger;
 use Wojtekn\CrazyCall\Model\Config;
 use Wojtekn\CrazyCall\Model\CustomerExportScheduler;
 
@@ -33,7 +33,7 @@ class AddressSave
     protected $customerRegistry;
 
     /**
-     * @var LoggerInterface
+     * @var Logger
      */
     private $logger;
 
@@ -41,13 +41,13 @@ class AddressSave
      * @param Config $config
      * @param CustomerExportScheduler $customerExportScheduler
      * @param CustomerRegistry $customerRegistry
-     * @param LoggerInterface $logger
+     * @param Logger $logger
      */
     public function __construct(
         Config $config,
         CustomerExportScheduler $customerExportScheduler,
         CustomerRegistry $customerRegistry,
-        LoggerInterface $logger
+        Logger $logger
     ) {
         $this->config = $config;
         $this->customerExportScheduler = $customerExportScheduler;
@@ -82,7 +82,7 @@ class AddressSave
             return $address;
         }
 
-        $this->logger->info(sprintf(
+        $this->logger->debug(sprintf(
             'Scheduling customer #%d for export (ADDRESS changed)',
             (int) $customer->getId()
         ));

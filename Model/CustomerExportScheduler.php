@@ -11,7 +11,7 @@ use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Framework\MessageQueue\PublisherInterface;
 use Wojtekn\CrazyCall\Api\Data\CustomerExportInterfaceFactory;
 use Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterfaceFactory;
-use Psr\Log\LoggerInterface;
+use Wojtekn\CrazyCall\Logger\Logger;
 
 class CustomerExportScheduler
 {
@@ -21,7 +21,7 @@ class CustomerExportScheduler
     private $customerExportMessageFactory;
 
     /**
-     * @var LoggerInterface
+     * @var Logger
      */
     private $logger;
 
@@ -40,12 +40,12 @@ class CustomerExportScheduler
     /**
      * @param CustomerExportMessageInterfaceFactory $customerExportMessageFactory
      * @param PublisherInterface $publisher
-     * @param LoggerInterface $logger
+     * @param Logger $logger
      */
     public function __construct(
         CustomerExportMessageInterfaceFactory $customerExportMessageFactory,
         PublisherInterface $publisher,
-        LoggerInterface $logger
+        Logger $logger
     ) {
         $this->customerExportMessageFactory = $customerExportMessageFactory;
         $this->publisher = $publisher;

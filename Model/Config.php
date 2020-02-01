@@ -22,13 +22,6 @@ class Config
     const CONFIG_XML_API_ENABLED = 'crazycall/connector/enabled';
 
     /**
-     * @var array
-     */
-    private $apiUrls = [
-        'import_contact' => 'api/v1/contacts'
-    ];
-
-    /**
      * @var ScopeConfigInterface
      */
     private $scopeConfig;
@@ -90,17 +83,16 @@ class Config
     /**
      * Get API url
      *
-     * @param string $type
      * @param int|null $websiteId
      * @return string
      */
-    public function getApiUrl(string $type, ?int $websiteId = null): string
+    public function getApiUrl(?int $websiteId = null): string
     {
-        return $this->scopeConfig->getValue(
+        return rtrim($this->scopeConfig->getValue(
             self::CONFIG_XML_API_URL,
             ScopeInterface::SCOPE_WEBSITE,
             $websiteId
-        ) . $this->apiUrls[$type];
+        ), '/');
     }
 
     /**
