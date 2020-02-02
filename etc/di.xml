@@ -23,4 +23,12 @@
         <plugin name="customer_address_save_after_plugin"
                 type="Wojtekn\CrazyCall\Plugin\AddressSave"/>
     </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="crazycall_export_customers" xsi:type="object">Wojtekn\CrazyCall\Console\Command\ExportCustomers</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

@@ -8,11 +8,11 @@ namespace Wojtekn\CrazyCall\Observer;
 
 use Magento\Customer\Api\Data\AddressInterface;
 use Magento\Customer\Api\Data\CustomerInterface;
-use Magento\Customer\Model\Address\AbstractAddress;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Wojtekn\CrazyCall\Logger\Logger;
 use Wojtekn\CrazyCall\Model\Config;
+use Wojtekn\CrazyCall\Model\CustomerAddressExtractor;
 use Wojtekn\CrazyCall\Model\CustomerExportScheduler;
 
 class CustomerSave implements ObserverInterface
@@ -21,6 +21,11 @@ class CustomerSave implements ObserverInterface
      * @var Config
      */
     private $config;
+
+    /**
+     * @var CustomerAddressExtractor
+     */
+    private $customerAddressExtractor;
 
     /**
      * @var CustomerExportScheduler
@@ -34,15 +39,18 @@ class CustomerSave implements ObserverInterface
 
     /**
      * @param Config $config
+     * @param CustomerAddressExtractor $customerAddressExtractor
      * @param CustomerExportScheduler $customerExportScheduler
      * @param Logger $logger
      */
     public function __construct(
         Config $config,
+        CustomerAddressExtractor $customerAddressExtractor,
         CustomerExportScheduler $customerExportScheduler,
         Logger $logger
     ) {
         $this->config = $config;
+        $this->customerAddressExtractor = $customerAddressExtractor;
         $this->customerExportScheduler = $customerExportScheduler;
         $this->logger = $logger;
     }
@@ -54,58 +62,27 @@ class CustomerSave implements ObserverInterface
     {
         $customer = $observer->getCustomerDataObject();
         $customerOrig = $observer->getOrigCustomerDataObject();
+
+        if (!$this->config->isEnabled((int) $customer->getWebsiteId())) {
+            return;
+        }
+
         if (!$this->isCustomerChanged($customer, $customerOrig)) {
             return;
         }
 
-        $address = $this->getAddress($customer);
-        if (!$this->isAddressValid($address)) {
+        $address = $this->customerAddressExtractor->getAddress($customer);
+        if (!($address instanceof AddressInterface)) {
             return;
         }
 
         $this->logger->debug(sprintf(
-            'Scheduling customer #%d for export (CUSTOMER changed)',
-            (int) $customer->getId()
+            'Scheduling customer #%d from website #%d for export (CUSTOMER changed)',
+            (int) $customer->getId(),
+            (int) $customer->getWebsiteId()
         ));
 
         $this->customerExportScheduler->schedule($customer, $address);
-    }
-
-    /**
-     * Get customer's default billing or shipping address, based on configured value.
-     *
-     * @param CustomerInterface $customer
-     * @return AddressInterface|null
-     */
-    private function getAddress(CustomerInterface $customer): ?AddressInterface
-    {
-        $type = $this->config->getAddressType((int) $customer->getWebsiteId());
-
-        foreach ($customer->getAddresses() as $address) {
-            if (
-                ($type == AbstractAddress::TYPE_BILLING && $address->isDefaultBilling()) ||
-                ($type == AbstractAddress::TYPE_SHIPPING && $address->isDefaultShipping())
-            ) {
-                return $address;
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * Return true if customer has default billing / default shipping address
-     *
-     * @param AddressInterface|null $address
-     * @return bool
-     */
-    private function isAddressValid(?AddressInterface $address): bool
-    {
-        if ($address instanceof AddressInterface) {
-            return true;
-        }
-
-        return false;
     }
 
     /**

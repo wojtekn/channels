@@ -78,13 +78,18 @@ class AddressSave
             return $address;
         }
 
+        if (!$this->config->isEnabled((int) $customer->getWebsiteId())) {
+            return $address;
+        }
+
         if (!$this->isAddressValid((int) $customer->getWebsiteId(), $addressToSave)) {
             return $address;
         }
 
         $this->logger->debug(sprintf(
-            'Scheduling customer #%d for export (ADDRESS changed)',
-            (int) $customer->getId()
+            'Scheduling customer #%d from website #%d for export (ADDRESS changed)',
+            (int) $customer->getId(),
+            (int) $customer->getWebsiteId()
         ));
 
         $this->customerExportScheduler->schedule($customer, $address);
