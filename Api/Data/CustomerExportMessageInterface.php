@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Wojtekn\CrazyCall\Api\Data;
 
 /**
- * Customer Export message interface
+ * Interface for Customer Export message
  */
 interface CustomerExportMessageInterface
 {

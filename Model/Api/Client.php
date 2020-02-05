@@ -18,7 +18,9 @@ use Zend_Http_Client;
 use Zend_Http_Client_Exception;
 
 /**
- * Class Client
+ * API client class
+ *
+ * Handles performing API call, handles errors, logs debug information.
  */
 class Client
 {
@@ -100,7 +102,10 @@ class Client
             $this->logException($e, $apiPath, $client);
 
             if ($e->getMessage() === self::ADAPTER_ERROR && $client->getAdapter()->getError()) {
-                throw new ApiFailedButRetryException(__('HTTP client adapter error: %1', $client->getAdapter()->getError()));
+                throw new ApiFailedButRetryException(__(
+                    'HTTP client adapter error: %1',
+                    $client->getAdapter()->getError()
+                ));
             } else {
                 throw new ApiFailedButRetryException(__('HTTP client error: %1', $e->getMessage()));
             }
@@ -136,14 +141,12 @@ class Client
                 throw new ApiFailedButRetryException(
                     __('API returned error %1: %2', $response->getStatus(), $response->getBody())
                 );
-                break;
             case 400: // eg. in valid argument format
             case 406: // invalid request format
             default: // other codes
                 throw new ApiFailedException(
                     __('API returned error %1: %2', $response->getStatus(), $response->getBody())
                 );
-                break;
         }
     }
 

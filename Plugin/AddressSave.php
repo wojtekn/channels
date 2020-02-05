@@ -111,8 +111,7 @@ class AddressSave
     {
         $type = $this->config->getAddressType($websiteId);
 
-        if (
-            ($type == AbstractAddress::TYPE_BILLING && !$address->isDefaultBilling()) ||
+        if (($type == AbstractAddress::TYPE_BILLING && !$address->isDefaultBilling()) ||
             ($type == AbstractAddress::TYPE_SHIPPING && !$address->isDefaultShipping())
         ) {
             return false;

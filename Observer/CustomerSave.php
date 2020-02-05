@@ -102,12 +102,11 @@ class CustomerSave implements ObserverInterface
      */
     private function isCustomerChanged(CustomerInterface $customer, ?CustomerInterface $customerOrig): bool
     {
-        if (is_null($customerOrig)) {
+        if ($customerOrig === null) {
             return false;
         }
 
-        if (
-            $customer->getFirstname() === $customerOrig->getFirstname() &&
+        if ($customer->getFirstname() === $customerOrig->getFirstname() &&
             $customer->getLastname() === $customerOrig->getLastname() &&
             $customer->getEmail() === $customerOrig->getEmail()
         ) {

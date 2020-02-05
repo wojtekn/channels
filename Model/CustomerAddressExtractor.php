@@ -10,7 +10,6 @@ use Magento\Customer\Api\Data\AddressInterface;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Customer\Model\Address\AbstractAddress;
 
-
 class CustomerAddressExtractor
 {
     /**
@@ -37,8 +36,7 @@ class CustomerAddressExtractor
         $type = $this->config->getAddressType((int) $customer->getWebsiteId());
 
         foreach ($customer->getAddresses() as $address) {
-            if (
-                ($type == AbstractAddress::TYPE_BILLING && $address->isDefaultBilling()) ||
+            if (($type == AbstractAddress::TYPE_BILLING && $address->isDefaultBilling()) ||
                 ($type == AbstractAddress::TYPE_SHIPPING && $address->isDefaultShipping())
             ) {
                 return $address;
