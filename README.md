@@ -25,6 +25,7 @@ Then install using composer by using commands:
 1. composer require wojtekn/module-crazycall dev-master
 2. composer update wojtekn/module-crazycall
 3. bin/magento setup:upgrade
+4. bin/magento cache:flush
 
 ## Technical approach
 
