@@ -41,4 +41,4 @@ bin/magento queue:consumers:start crazycallCustomerExport --max-messages=1
 
 Copyright
 ---------
-Copyright © 2020 Wojciech Naruniec (https://naruniec.me/). All rights reserved.
+Copyright © 2020 Wojciech Naruniec (https://naruniec.me/).

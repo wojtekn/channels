@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2020 Wojciech Naruniec (https://naruniec.me/). All rights reserved.
+ * Copyright © 2020 Wojciech Naruniec (https://naruniec.me/).
  */
 declare(strict_types=1);
 
