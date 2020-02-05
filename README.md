@@ -18,10 +18,12 @@ For now extension is in beta state, you can install it from private repository. 
         "url": "git@github.com:wojtekn/crazy-call.git"
     }
 
+For beta state, also change "minimum-stability" to "dev".
+
 Then install using composer by using commands:
 
-1. composer require wojtekn/crazy-call
-2. composer update wojtekn/crazy-call
+1. composer require wojtekn/module-crazycall dev-master
+2. composer update wojtekn/module-crazycall
 3. bin/magento setup:upgrade
 
 ## Technical approach
