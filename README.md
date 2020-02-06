@@ -11,18 +11,9 @@ Module integrates Magento with Crazy Call service. It allows synchronizing Magen
 
 ## Installation Instructions
 
-For now extension is in beta state, you can install it from private repository. Add it in composer.json file of your project in repositories section:
+Install extension using composer by using commands:
 
-    {
-        "type": "vcs",
-        "url": "git@github.com:wojtekn/crazy-call.git"
-    }
-
-For beta state, also change "minimum-stability" to "dev".
-
-Then install using composer by using commands:
-
-    composer require wojtekn/module-crazycall dev-master
+    composer require wojtekn/module-crazycall
     composer update wojtekn/module-crazycall
     bin/magento setup:upgrade
     bin/magento cache:flush
