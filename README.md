@@ -22,10 +22,10 @@ For beta state, also change "minimum-stability" to "dev".
 
 Then install using composer by using commands:
 
-1. composer require wojtekn/module-crazycall dev-master
-2. composer update wojtekn/module-crazycall
-3. bin/magento setup:upgrade
-4. bin/magento cache:flush
+    composer require wojtekn/module-crazycall dev-master
+    composer update wojtekn/module-crazycall
+    bin/magento setup:upgrade
+    bin/magento cache:flush
 
 ## Configuration
 
@@ -43,7 +43,7 @@ API account and API key can be found in Crazy Call backend in "For developers" t
 
 Module provides a command to schedule existing customers for export. It can be used when module is integrated in store which already have customers. To do so, run a command:
 
-bin/magento crazycall:customer:export 
+    bin/magento crazycall:customer:export 
 
 ## Technical approach
 
@@ -55,7 +55,7 @@ and sends scheduled contacts to the service.
 
 To start queue processing manually:
 
-bin/magento queue:consumers:start crazycallCustomerExport --max-messages=1
+    bin/magento queue:consumers:start crazycallCustomerExport --max-messages=1
 
 Copyright
 ---------
