@@ -27,6 +27,24 @@ Then install using composer by using commands:
 3. bin/magento setup:upgrade
 4. bin/magento cache:flush
 
+## Configuration
+
+To integrate module with the service:
+
+1. Log in to Magento 2 backend
+2. Navigate to Stores -> Configuration
+3. Navigate to Services -> Crazy Call tab
+4. Enable integration, fill API details
+5. Save
+
+API account and API key can be found in Crazy Call backend in "For developers" tab.
+
+## Scheduling existing customers
+
+Module provides a command to schedule existing customers for export. It can be used when module is integrated in store which already have customers. To do so, run a command:
+
+bin/magento crazycall:customer:export 
+
 ## Technical approach
 
 Customer account synchronization is scheduled to queue on each account or address change. Queue is configured to use database by default,
