@@ -32,9 +32,19 @@ API account and API key can be found in Crazy Call backend in "For developers" t
 
 ## Scheduling existing customers
 
+### CLI
+
 Module provides a command to schedule existing customers for export. It can be used when module is integrated in store which already have customers. To do so, run a command:
 
-    bin/magento crazycall:customer:export 
+    bin/magento crazycall:customer:export
+
+### Admin interface
+
+It's also possible to scheudule multiple customers for Crazy Call export directly in the admin interface.
+
+In order to do this, navigate to customer grid, select customers and use "Export to Crazy Call" mass action.
+
+Note that recommended way is CLI, especially if store contains significant number of customers.
 
 ## Technical approach
 

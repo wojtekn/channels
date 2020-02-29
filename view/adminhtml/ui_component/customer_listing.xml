@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2020 Wojciech Naruniec (https://naruniec.me/).
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="export">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to schedule the selected customers for export to Crazy Call service?</message>
+                        <title translate="true">Export to Crazy Call</title>
+                    </confirm>
+                    <url path="crazycall/customer/massExport"/>
+                    <type>export</type>
+                    <label translate="true">Export to Crazy Call</label>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>
