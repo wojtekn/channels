@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model;
+namespace Wojtekn\Channels\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
@@ -14,12 +14,12 @@ class Config
     /**
      * Config path constants
      */
-    const CONFIG_XML_API_ADDRESS_TYPE = 'crazycall/connector/address_type';
-    const CONFIG_XML_API_ACCOUNT = 'crazycall/connector/api_account';
-    const CONFIG_XML_API_KEY = 'crazycall/connector/api_key';
-    const CONFIG_XML_API_URL = 'crazycall/connector/api_url';
-    const CONFIG_XML_API_DEBUG = 'crazycall/connector/debug';
-    const CONFIG_XML_API_ENABLED = 'crazycall/connector/enabled';
+    const CONFIG_XML_API_ADDRESS_TYPE = 'channels/connector/address_type';
+    const CONFIG_XML_API_ACCOUNT = 'channels/connector/api_account';
+    const CONFIG_XML_API_KEY = 'channels/connector/api_key';
+    const CONFIG_XML_API_URL = 'channels/connector/api_url';
+    const CONFIG_XML_API_DEBUG = 'channels/connector/debug';
+    const CONFIG_XML_API_ENABLED = 'channels/connector/enabled';
 
     /**
      * @var ScopeConfigInterface

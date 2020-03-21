@@ -4,18 +4,18 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Api;
+namespace Wojtekn\Channels\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Wojtekn\CrazyCall\Api\Data\EntityMappingInterface;
-use Wojtekn\CrazyCall\Api\Data\EntityMappingSearchResultsInterface;
+use Wojtekn\Channels\Api\Data\EntityMappingInterface;
+use Wojtekn\Channels\Api\Data\EntityMappingSearchResultsInterface;
 
 /**
- * Crazy Call entities mapping repository interface.
+ * Channels entities mapping repository interface.
  *
  * @api
  * @since 1.0.0

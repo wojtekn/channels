@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model;
+namespace Wojtekn\Channels\Model;
 
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
@@ -12,17 +12,17 @@ use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Wojtekn\CrazyCall\Api\Data\EntityMappingInterface;
-use Wojtekn\CrazyCall\Api\Data\EntityMappingInterfaceFactory;
-use Wojtekn\CrazyCall\Api\Data\EntityMappingSearchResultsInterface;
-use Wojtekn\CrazyCall\Api\Data\EntityMappingSearchResultsInterfaceFactory;
-use Wojtekn\CrazyCall\Api\EntityMappingRepositoryInterface;
-use Wojtekn\CrazyCall\Model\ResourceModel\EntityMapping as EntityMappingResource;
-use Wojtekn\CrazyCall\Model\ResourceModel\EntityMapping\Collection as EntityMappingCollection;
-use Wojtekn\CrazyCall\Model\ResourceModel\EntityMapping\CollectionFactory as EntityMappingCollectionFactory;
+use Wojtekn\Channels\Api\Data\EntityMappingInterface;
+use Wojtekn\Channels\Api\Data\EntityMappingInterfaceFactory;
+use Wojtekn\Channels\Api\Data\EntityMappingSearchResultsInterface;
+use Wojtekn\Channels\Api\Data\EntityMappingSearchResultsInterfaceFactory;
+use Wojtekn\Channels\Api\EntityMappingRepositoryInterface;
+use Wojtekn\Channels\Model\ResourceModel\EntityMapping as EntityMappingResource;
+use Wojtekn\Channels\Model\ResourceModel\EntityMapping\Collection as EntityMappingCollection;
+use Wojtekn\Channels\Model\ResourceModel\EntityMapping\CollectionFactory as EntityMappingCollectionFactory;
 
 /**
- * Crazy Call entities mapping repository
+ * Channels entities mapping repository
  */
 class EntityMappingRepository implements EntityMappingRepositoryInterface
 {
@@ -110,7 +110,7 @@ class EntityMappingRepository implements EntityMappingRepositoryInterface
         $this->entityMappingResource->load($entityMappingModel, $id);
 
         if (!$entityMappingModel->getId()) {
-            throw new NoSuchEntityException(__('No Crazy Call entities mapping entry with ID %1', $id));
+            throw new NoSuchEntityException(__('No Channels entities mapping entry with ID %1', $id));
         }
 
         return $entityMappingModel;

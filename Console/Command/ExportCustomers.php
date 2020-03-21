@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Console\Command;
+namespace Wojtekn\Channels\Console\Command;
 
 use Magento\Customer\Api\Data\AddressInterface;
 use Magento\Customer\Model\CustomerFactory;
@@ -14,10 +14,10 @@ use Magento\Store\Model\StoreManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Wojtekn\CrazyCall\Logger\Logger;
-use Wojtekn\CrazyCall\Model\Config;
-use Wojtekn\CrazyCall\Model\CustomerAddressExtractor;
-use Wojtekn\CrazyCall\Model\CustomerExportScheduler;
+use Wojtekn\Channels\Logger\Logger;
+use Wojtekn\Channels\Model\Config;
+use Wojtekn\Channels\Model\CustomerAddressExtractor;
+use Wojtekn\Channels\Model\CustomerExportScheduler;
 
 class ExportCustomers extends Command
 {
@@ -97,7 +97,7 @@ class ExportCustomers extends Command
      */
     protected function configure()
     {
-        $this->setName('crazycall:customer:export');
+        $this->setName('channels:customer:export');
         $this->setDescription('Schedules all customers for export');
         parent::configure();
     }

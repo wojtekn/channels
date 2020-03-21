@@ -4,9 +4,9 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model\Queue\Mapper;
+namespace Wojtekn\Channels\Model\Queue\Mapper;
 
-use Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterface;
+use Wojtekn\Channels\Api\Data\CustomerExportMessageInterface;
 
 /**
  * Mapper for export message.

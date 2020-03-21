@@ -4,15 +4,15 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model\Api\Request;
+namespace Wojtekn\Channels\Model\Api\Request;
 
 use Magento\Framework\Serialize\Serializer\Json;
-use Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterface;
-use Wojtekn\CrazyCall\Exception\ApiFailedButRetryException;
-use Wojtekn\CrazyCall\Exception\ApiFailedException;
-use Wojtekn\CrazyCall\Model\Api\Client;
-use Wojtekn\CrazyCall\Model\Config;
-use Wojtekn\CrazyCall\Model\Queue\Mapper\CustomerExportMapper;
+use Wojtekn\Channels\Api\Data\CustomerExportMessageInterface;
+use Wojtekn\Channels\Exception\ApiFailedButRetryException;
+use Wojtekn\Channels\Exception\ApiFailedException;
+use Wojtekn\Channels\Model\Api\Client;
+use Wojtekn\Channels\Model\Config;
+use Wojtekn\Channels\Model\Queue\Mapper\CustomerExportMapper;
 
 /**
  * Class CustomerExport

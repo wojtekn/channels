@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model;
+namespace Wojtekn\Channels\Model;
 
 use Magento\Customer\Api\Data\AddressInterface;
 use Magento\Customer\Api\Data\CustomerInterface;

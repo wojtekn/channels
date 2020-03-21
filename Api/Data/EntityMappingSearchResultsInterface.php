@@ -4,12 +4,12 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Api\Data;
+namespace Wojtekn\Channels\Api\Data;
 
 use Magento\Framework\Api\SearchResultsInterface;
 
 /**
- * Crazy Call entities mapping search result interface.
+ * Channels entities mapping search result interface.
  *
  * @api
  * @since 1.0.0

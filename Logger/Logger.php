@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Logger;
+namespace Wojtekn\Channels\Logger;
 
 use Monolog\Logger as MonologLogger;
 
@@ -13,5 +13,5 @@ use Monolog\Logger as MonologLogger;
  */
 class Logger extends MonologLogger
 {
-    
+
 }

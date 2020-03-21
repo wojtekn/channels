@@ -4,10 +4,10 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Api\Data;
+namespace Wojtekn\Channels\Api\Data;
 
 /**
- * Interface for Crazy Call entities mapping data object
+ * Interface for Channels entities mapping data object
  */
 interface EntityMappingInterface
 {

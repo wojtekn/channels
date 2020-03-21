@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model\Queue;
+namespace Wojtekn\Channels\Model\Queue;
 
 /**
  * Class TopicRegistry
@@ -13,5 +13,5 @@ namespace Wojtekn\CrazyCall\Model\Queue;
  */
 class TopicRegistry
 {
-    public const TOPIC_CUSTOMER_EXPORT = 'crazycall.customer.export';
+    public const TOPIC_CUSTOMER_EXPORT = 'channels.customer.export';
 }

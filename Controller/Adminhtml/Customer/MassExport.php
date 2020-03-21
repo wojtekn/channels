@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Controller\Adminhtml\Customer;
+namespace Wojtekn\Channels\Controller\Adminhtml\Customer;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
@@ -20,9 +20,9 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Ui\Component\MassAction\Filter;
-use Wojtekn\CrazyCall\Logger\Logger;
-use Wojtekn\CrazyCall\Model\CustomerAddressExtractor;
-use Wojtekn\CrazyCall\Model\CustomerExportScheduler;
+use Wojtekn\Channels\Logger\Logger;
+use Wojtekn\Channels\Model\CustomerAddressExtractor;
+use Wojtekn\Channels\Model\CustomerExportScheduler;
 
 /**
  * Class MassExport allows scheduling export for selected customers
@@ -80,7 +80,7 @@ class MassExport extends AbstractMassAction implements HttpPostActionInterface
     }
 
     /**
-     * Customer mass export to Crazy Call action
+     * Customer mass export to Channels action
      *
      * @param AbstractCollection $collection
      * @return Redirect|ResponseInterface|ResultInterface

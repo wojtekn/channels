@@ -4,14 +4,14 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model\ResourceModel\EntityMapping;
+namespace Wojtekn\Channels\Model\ResourceModel\EntityMapping;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use Wojtekn\CrazyCall\Model\EntityMapping;
-use Wojtekn\CrazyCall\Model\ResourceModel\EntityMapping as EntityMappingResource;
+use Wojtekn\Channels\Model\EntityMapping;
+use Wojtekn\Channels\Model\ResourceModel\EntityMapping as EntityMappingResource;
 
 /**
- * Crazy Call entities mapping collection
+ * Channels entities mapping collection
  */
 class Collection extends AbstractCollection
 {

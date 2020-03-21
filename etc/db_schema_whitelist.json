@@ -1,5 +1,5 @@
 {
-    "crazycall_mapping": {
+    "channels_mapping": {
         "column": {
             "id": true,
             "internal_id": true,
@@ -8,7 +8,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "CRAZYCALL_MAPPING_INTERNAL_ID_EXTERNAL_ID_OBJECT_TYPE": true
+            "CHANNELS_MAPPING_INTERNAL_ID_EXTERNAL_ID_OBJECT_TYPE": true
         }
     }
 }

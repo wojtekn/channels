@@ -7,7 +7,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
     <exchange name="magento-db" type="topic" connection="db">
-        <binding id="crazycallCustomerExportBinding" topic="crazycall.customer.export"
-                 destinationType="queue" destination="crazycall.customer.export"/>
+        <binding id="channelsCustomerExportBinding" topic="channels.customer.export"
+                 destinationType="queue" destination="channels.customer.export"/>
     </exchange>
 </config>

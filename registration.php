@@ -8,6 +8,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Wojtekn_CrazyCall',
+    'Wojtekn_Channels',
     __DIR__
 );

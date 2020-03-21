@@ -6,7 +6,7 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/queue.xsd">
-    <broker topic="crazycall.customer.export" exchange="magento-db" type="db">
-        <queue name="crazycall.customer.export" consumer="crazycallCustomerExport"/>
+    <broker topic="channels.customer.export" exchange="magento-db" type="db">
+        <queue name="channels.customer.export" consumer="channelsCustomerExport"/>
     </broker>
 </config>

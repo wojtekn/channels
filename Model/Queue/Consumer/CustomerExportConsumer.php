@@ -4,22 +4,22 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model\Queue\Consumer;
+namespace Wojtekn\Channels\Model\Queue\Consumer;
 
 use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\MessageQueue\PublisherInterface;
-use Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterface;
-use Wojtekn\CrazyCall\Api\Data\EntityMappingInterface;
-use Wojtekn\CrazyCall\Api\Data\EntityMappingInterfaceFactory;
-use Wojtekn\CrazyCall\Api\EntityMappingRepositoryInterface;
-use Wojtekn\CrazyCall\Exception\ApiFailedButRetryException;
-use Wojtekn\CrazyCall\Exception\ApiFailedException;
-use Wojtekn\CrazyCall\Logger\Logger;
-use Wojtekn\CrazyCall\Model\Api\Request\CustomerExport as CustomerExportRequest;
-use Wojtekn\CrazyCall\Model\Api\Request\CustomerExportFactory as CustomerExportRequestFactory;
-use Wojtekn\CrazyCall\Model\Config;
-use Wojtekn\CrazyCall\Model\Queue\TopicRegistry;
+use Wojtekn\Channels\Api\Data\CustomerExportMessageInterface;
+use Wojtekn\Channels\Api\Data\EntityMappingInterface;
+use Wojtekn\Channels\Api\Data\EntityMappingInterfaceFactory;
+use Wojtekn\Channels\Api\EntityMappingRepositoryInterface;
+use Wojtekn\Channels\Exception\ApiFailedButRetryException;
+use Wojtekn\Channels\Exception\ApiFailedException;
+use Wojtekn\Channels\Logger\Logger;
+use Wojtekn\Channels\Model\Api\Request\CustomerExport as CustomerExportRequest;
+use Wojtekn\Channels\Model\Api\Request\CustomerExportFactory as CustomerExportRequestFactory;
+use Wojtekn\Channels\Model\Config;
+use Wojtekn\Channels\Model\Queue\TopicRegistry;
 
 /**
  * Consumer for export message.

@@ -4,14 +4,14 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model;
+namespace Wojtekn\Channels\Model;
 
 use Magento\Customer\Api\Data\AddressInterface;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Framework\MessageQueue\PublisherInterface;
-use Wojtekn\CrazyCall\Api\Data\CustomerExportInterfaceFactory;
-use Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterfaceFactory;
-use Wojtekn\CrazyCall\Logger\Logger;
+use Wojtekn\Channels\Api\Data\CustomerExportInterfaceFactory;
+use Wojtekn\Channels\Api\Data\CustomerExportMessageInterfaceFactory;
+use Wojtekn\Channels\Logger\Logger;
 
 class CustomerExportScheduler
 {
@@ -78,7 +78,7 @@ class CustomerExportScheduler
         $customerExportMessage->setCompany((string) $address->getCompany());
 
         try {
-            $this->publisher->publish('crazycall.customer.export', $customerExportMessage);
+            $this->publisher->publish('channels.customer.export', $customerExportMessage);
             return true;
         } catch (\Exception $exception) {
             $this->logger->error(sprintf(

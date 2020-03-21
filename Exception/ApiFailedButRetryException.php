@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Exception;
+namespace Wojtekn\Channels\Exception;
 
 use Magento\Framework\Exception\LocalizedException;
 

@@ -4,14 +4,14 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model;
+namespace Wojtekn\Channels\Model;
 
 use Magento\Framework\Model\AbstractModel;
-use Wojtekn\CrazyCall\Api\Data\EntityMappingInterface;
-use Wojtekn\CrazyCall\Model\ResourceModel\EntityMapping as EntityMappingResource;
+use Wojtekn\Channels\Api\Data\EntityMappingInterface;
+use Wojtekn\Channels\Model\ResourceModel\EntityMapping as EntityMappingResource;
 
 /**
- * Model for Crazy Call entities mapping
+ * Model for Channels entities mapping
  */
 class EntityMapping extends AbstractModel implements EntityMappingInterface
 {

@@ -4,10 +4,10 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model\Queue\Message;
+namespace Wojtekn\Channels\Model\Queue\Message;
 
 use Magento\Framework\Model\AbstractModel;
-use Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterface;
+use Wojtekn\Channels\Api\Data\CustomerExportMessageInterface;
 
 /**
  * Message for customer export queue.

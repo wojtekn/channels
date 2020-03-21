@@ -4,16 +4,16 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Plugin;
+namespace Wojtekn\Channels\Plugin;
 
 use Magento\Customer\Api\Data\AddressInterface;
 use Magento\Customer\Model\Address\AbstractAddress;
 use Magento\Customer\Model\CustomerRegistry;
 use Magento\Customer\Model\ResourceModel\AddressRepository;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Wojtekn\CrazyCall\Logger\Logger;
-use Wojtekn\CrazyCall\Model\Config;
-use Wojtekn\CrazyCall\Model\CustomerExportScheduler;
+use Wojtekn\Channels\Logger\Logger;
+use Wojtekn\Channels\Model\Config;
+use Wojtekn\Channels\Model\CustomerExportScheduler;
 
 class AddressSave
 {

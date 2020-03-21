@@ -1,6 +1,6 @@
 {
-  "name": "wojtekn/module-crazycall",
-  "description": "Connector which allows to integrate with CrazyCall service.",
+  "name": "wojtekn/module-channels",
+  "description": "Connector which allows to integrate with Channels service.",
   "require": {
     "php": "~7.1.0|~7.2.0|~7.3.0",
     "magento/framework": ">=102.0",
@@ -19,7 +19,7 @@
       "registration.php"
     ],
     "psr-4": {
-      "Wojtekn\\CrazyCall\\": ""
+      "Wojtekn\\Channels\\": ""
     }
   }
 }

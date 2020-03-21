@@ -11,12 +11,12 @@
             <action name="export">
                 <settings>
                     <confirm>
-                        <message translate="true">Are you sure you want to schedule the selected customers for export to Crazy Call service?</message>
-                        <title translate="true">Export to Crazy Call</title>
+                        <message translate="true">Are you sure you want to schedule the selected customers for export to Channels service?</message>
+                        <title translate="true">Export to Channels</title>
                     </confirm>
-                    <url path="crazycall/customer/massExport"/>
+                    <url path="channels/customer/massExport"/>
                     <type>export</type>
-                    <label translate="true">Export to Crazy Call</label>
+                    <label translate="true">Export to Channels</label>
                 </settings>
             </action>
         </massaction>

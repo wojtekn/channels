@@ -4,16 +4,16 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model\Api;
+namespace Wojtekn\Channels\Model\Api;
 
 use Exception;
 use Magento\Framework\HTTP\ZendClient;
 use Magento\Framework\HTTP\ZendClientFactory;
 use Magento\Framework\Serialize\Serializer\Json;
-use Wojtekn\CrazyCall\Exception\ApiFailedException;
-use Wojtekn\CrazyCall\Exception\ApiFailedButRetryException;
-use Wojtekn\CrazyCall\Logger\Logger;
-use Wojtekn\CrazyCall\Model\Config;
+use Wojtekn\Channels\Exception\ApiFailedException;
+use Wojtekn\Channels\Exception\ApiFailedButRetryException;
+use Wojtekn\Channels\Logger\Logger;
+use Wojtekn\Channels\Model\Config;
 use Zend_Http_Client;
 use Zend_Http_Client_Exception;
 

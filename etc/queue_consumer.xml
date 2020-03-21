@@ -6,6 +6,6 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/consumer.xsd">
-    <consumer name="crazycallCustomerExport" queue="crazycall.customer.export" connection="db"
+    <consumer name="channelsCustomerExport" queue="channels.customer.export" connection="db"
               maxMessages="5000" consumerInstance="Magento\Framework\MessageQueue\Consumer" />
 </config>

@@ -4,12 +4,12 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Model\ResourceModel;
+namespace Wojtekn\Channels\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\VersionControl\AbstractDb;
 
 /**
- * Crazy Call entities mapping Resource Model
+ * Channels entities mapping Resource Model
  */
 class EntityMapping extends AbstractDb
 {
@@ -18,6 +18,6 @@ class EntityMapping extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('crazycall_mapping', 'id');
+        $this->_init('channels_mapping', 'id');
     }
 }

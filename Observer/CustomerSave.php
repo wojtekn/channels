@@ -4,16 +4,16 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Observer;
+namespace Wojtekn\Channels\Observer;
 
 use Magento\Customer\Api\Data\AddressInterface;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Wojtekn\CrazyCall\Logger\Logger;
-use Wojtekn\CrazyCall\Model\Config;
-use Wojtekn\CrazyCall\Model\CustomerAddressExtractor;
-use Wojtekn\CrazyCall\Model\CustomerExportScheduler;
+use Wojtekn\Channels\Logger\Logger;
+use Wojtekn\Channels\Model\Config;
+use Wojtekn\Channels\Model\CustomerAddressExtractor;
+use Wojtekn\Channels\Model\CustomerExportScheduler;
 
 class CustomerSave implements ObserverInterface
 {

@@ -4,23 +4,23 @@
  */
 declare(strict_types=1);
 
-namespace Wojtekn\CrazyCall\Logger\Handler;
+namespace Wojtekn\Channels\Logger\Handler;
 
 use Exception;
 use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\Logger\Handler\Base;
 use Monolog\Logger;
-use Wojtekn\CrazyCall\Model\Config;
+use Wojtekn\Channels\Model\Config;
 
 /**
- * Write CrazyCall related messages to a specific log
+ * Write Channels related messages to a specific log
  */
-class CrazyCall extends Base
+class Channels extends Base
 {
     /**
      * @var string Name of the log file
      */
-    protected $fileName = '/var/log/crazy-call-debug.log';
+    protected $fileName = '/var/log/channels-debug.log';
 
     /**
      * Log level to log

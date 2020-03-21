@@ -7,10 +7,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="crazycall" translate="label" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="0">
-            <label>Crazy Call</label>
+        <section id="channels" translate="label" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Channels App</label>
             <tab>service</tab>
-            <resource>Wojtekn_CrazyCall::config_connector</resource>
+            <resource>Wojtekn_Channels::config_connector</resource>
             <group id="connector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>Connector Settings</label>
                 <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
@@ -29,7 +29,6 @@
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <comment>Account ID in *****.crazycall.com format.</comment>
                 </field>
                 <field id="api_key" translate="label" type="obscure" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>API Key</label>
@@ -52,7 +51,7 @@
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <comment>Enable debug mode to log API request and response in the crazy-call-debug.log file.</comment>
+                    <comment>Enable debug mode to log API request and response in the channels-debug.log file.</comment>
                 </field>
             </group>
         </section>

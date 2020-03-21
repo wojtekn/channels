@@ -3,31 +3,31 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
-    <preference for="Wojtekn\CrazyCall\Api\Data\EntityMappingInterface" type="Wojtekn\CrazyCall\Model\EntityMapping"/>
-    <preference for="Wojtekn\CrazyCall\Api\Data\EntityMappingSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
-    <preference for="Wojtekn\CrazyCall\Api\EntityMappingRepositoryInterface" type="Wojtekn\CrazyCall\Model\EntityMappingRepository" />
+    <preference for="Wojtekn\Channels\Api\Data\EntityMappingInterface" type="Wojtekn\Channels\Model\EntityMapping"/>
+    <preference for="Wojtekn\Channels\Api\Data\EntityMappingSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Wojtekn\Channels\Api\EntityMappingRepositoryInterface" type="Wojtekn\Channels\Model\EntityMappingRepository" />
 
-    <preference for="Wojtekn\CrazyCall\Api\Data\CustomerExportMessageInterface"
-                type="Wojtekn\CrazyCall\Model\Queue\Message\CustomerExportMessage" />
+    <preference for="Wojtekn\Channels\Api\Data\CustomerExportMessageInterface"
+                type="Wojtekn\Channels\Model\Queue\Message\CustomerExportMessage" />
 
-    <type name="Wojtekn\CrazyCall\Logger\Logger">
+    <type name="Wojtekn\Channels\Logger\Logger">
         <arguments>
-            <argument name="name" xsi:type="string">CrazyCall</argument>
+            <argument name="name" xsi:type="string">Channels</argument>
             <argument name="handlers" xsi:type="array">
-                <item name="standard" xsi:type="object">Wojtekn\CrazyCall\Logger\Handler\CrazyCall</item>
+                <item name="standard" xsi:type="object">Wojtekn\Channels\Logger\Handler\Channels</item>
             </argument>
         </arguments>
     </type>
 
     <type name="Magento\Customer\Model\ResourceModel\AddressRepository">
         <plugin name="customer_address_save_after_plugin"
-                type="Wojtekn\CrazyCall\Plugin\AddressSave"/>
+                type="Wojtekn\Channels\Plugin\AddressSave"/>
     </type>
 
     <type name="Magento\Framework\Console\CommandListInterface">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="crazycall_export_customers" xsi:type="object">Wojtekn\CrazyCall\Console\Command\ExportCustomers</item>
+                <item name="channels_export_customers" xsi:type="object">Wojtekn\Channels\Console\Command\ExportCustomers</item>
             </argument>
         </arguments>
     </type>
