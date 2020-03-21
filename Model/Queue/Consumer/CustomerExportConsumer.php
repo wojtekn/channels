@@ -100,7 +100,7 @@ class CustomerExportConsumer
 
             try {
                 $this->entityMappingRepository->save($entityMapping);
-                // phpcs:ignore Magento2.CodeAnalysis.EmptyBlock.DetectedCatch
+                // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch,Magento2.CodeAnalysis.EmptyBlock.DetectedCatch
             } catch (AlreadyExistsException | CouldNotSaveException $exception) {
                 // intentionally omitted - it means that mapping for this customer already exists
             }

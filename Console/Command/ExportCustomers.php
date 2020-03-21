@@ -104,6 +104,8 @@ class ExportCustomers extends Command
 
     /**
      * {@inheritdoc}
+     *
+     * phpcs:disable Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {

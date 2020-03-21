@@ -65,6 +65,8 @@ class AddressSave
      * @param AddressInterface $addressToSave
      *
      * @return AddressInterface
+     *
+     * phpcs:disable Generic.CodeAnalysis.UnusedFunctionParameter.FoundBeforeLastUsed
      */
     public function afterSave(
         AddressRepository $addressRepository,
