@@ -28,7 +28,7 @@ To integrate module with the service:
 4. Enable integration, fill API details
 5. Save
 
-API account and API key can be found in Channels backend in "For developers" tab.
+API account and API key can be found in Channels backend in "Integrations" tab.
 
 ## Scheduling existing customers
 

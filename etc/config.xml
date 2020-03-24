@@ -10,7 +10,7 @@
         <channels>
             <connector>
                 <enabled>0</enabled>
-                <api_url>https://api.channels.com/</api_url>
+                <api_url>https://api.channels.app/</api_url>
                 <api_account/>
                 <api_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
                 <address_type>shipping</address_type>
