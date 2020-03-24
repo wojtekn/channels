@@ -114,7 +114,7 @@ class Client
             throw new ApiFailedButRetryException(__('An unknown error occurred performing the request'), $e);
         }
 
-        $this->logRequest($apiPath, (string) $client->getLastRequest(), (string) $client->getLastResponse());
+        $this->logRequest($apiPath, $client->getLastRequest(), $client->getLastResponse());
 
         $this->handleApiError($response);
 
@@ -162,26 +162,37 @@ class Client
         $this->logger->critical($exception->getMessage() . PHP_EOL . $exception->getTraceAsString());
         $this->logRequest(
             $type,
-            $client !== null ? (string) $client->getLastRequest() : '',
-            $client !== null ? (string) $client->getLastResponse() : ''
+            $client !== null ? $client->getLastRequest() : '',
+            $client !== null ? $client->getLastResponse() : ''
         );
     }
 
     /**
      * Log an API Request
      *
+     * __toString method implemented in Zend_Http_Response can't be used because
+     * internally it uses getRawBody() logs gzipped response.
+     *
      * @param string $type
      * @param string $request
      * @param string $response
      */
-    private function logRequest(string $type, string $request, string $response): void
+    private function logRequest(string $type, $request, $response): void
     {
+        if ($response instanceof \Zend_Http_Response) {
+            $br = "\r\n";
+            $responseText = $response->getHeadersAsString(true, $br) .
+                $br . $response->getBody();
+        } else {
+            $responseText = $response;
+        }
+
         $this->logger->debug(
             sprintf(
                 'TYPE: %s' . PHP_EOL . 'REQUEST: %s' . PHP_EOL . 'RESPONSE: %s' . PHP_EOL,
                 $type,
                 $request,
-                $response
+                $responseText
             )
         );
     }
