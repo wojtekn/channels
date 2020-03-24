@@ -43,6 +43,16 @@ interface EntityMappingRepositoryInterface
     public function getById($id): EntityMappingInterface;
 
     /**
+     * Get an external id by internal id
+     *
+     * @param integer $id
+     * @param integer $entityType
+     * @return integer
+     * @throws NoSuchEntityException If external entity mapping isn't found.
+     */
+    public function getByInternalId($id, $entityType): int;
+
+    /**
      * Lists entities mapping entries that match specified search criteria.
      *
      * @param SearchCriteriaInterface $searchCriteria The search criteria.

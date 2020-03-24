@@ -119,6 +119,28 @@ class EntityMappingRepository implements EntityMappingRepositoryInterface
     /**
      * @inheritdoc
      */
+    public function getByInternalId($id, $objectType): int
+    {
+        /** @var EntityMappingCollection $collection */
+        $collection = $this->collectionFactory->create();
+
+        $collection->addFieldToFilter(EntityMappingInterface::FIELD_INTERNAL_ID, $id);
+        $collection->addFieldToFilter(EntityMappingInterface::FIELD_OBJECT_TYPE, $objectType);
+
+        $externalEntityMapping = $collection->getFirstItem();
+
+        if (!$externalEntityMapping || !$externalEntityMapping->getId()) {
+            throw new NoSuchEntityException(
+                __('No external entity mapping with %1: %2 and Type: %3', EntityMappingInterface::FIELD_INTERNAL_ID, $id, $objectType)
+            );
+        }
+
+        return $externalEntityMapping->getExternalId();
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function delete(EntityMappingInterface $entityMapping): bool
     {
         try {
