@@ -126,8 +126,9 @@ class EntityMappingRepository implements EntityMappingRepositoryInterface
 
         $collection->addFieldToFilter(EntityMappingInterface::FIELD_INTERNAL_ID, $id);
         $collection->addFieldToFilter(EntityMappingInterface::FIELD_OBJECT_TYPE, $objectType);
+        $collection->setPageSize(1);
 
-        $externalEntityMapping = $collection->getFirstItem();
+        $externalEntityMapping = $collection->getLastItem();
 
         if (!$externalEntityMapping || !$externalEntityMapping->getId()) {
             throw new NoSuchEntityException(

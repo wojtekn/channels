@@ -31,4 +31,7 @@
             </argument>
         </arguments>
     </type>
+
+    <preference for="Magento\Customer\Controller\Adminhtml\Index\Edit"
+                type="Wojtekn\Channels\Controller\Adminhtml\Customer\Edit" />
 </config>
