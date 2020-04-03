@@ -13,8 +13,8 @@ Module integrates Magento with Channels service. It allows synchronizing Magento
 
 Install extension using composer by using commands:
 
-    composer require wojtekn/module-channels --no-update
-    composer update wojtekn/module-channels
+    composer require channels/module-channels --no-update
+    composer update channels/module-channels
     bin/magento setup:upgrade
     bin/magento cache:flush
 
