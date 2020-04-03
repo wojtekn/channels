@@ -1,6 +1,7 @@
 {
-  "name": "wojtekn/module-channels",
+  "name": "channels/module-channels",
   "description": "Connector which allows to integrate with Channels service.",
+  "version": "1.0.1",
   "require": {
     "php": "~7.1.0|~7.2.0|~7.3.0",
     "magento/framework": ">=102.0",
