@@ -1,0 +1,57 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  composer:
+    name: Composer Check
+    runs-on: ubuntu-latest
+    container:
+      image: davidalger/php:7.3
+      env:
+        MAGE_MODE: production
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+
+      - name: Validate composer files
+        run: composer validate --no-check-all --no-check-publish
+        
+  phpcs:
+    name: MCS Check
+    runs-on: ubuntu-latest
+    env:
+      COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+    container:
+      image: davidalger/php:7.3
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+        
+      - name: Add Magento repository
+        run: composer config repositories.magento composer https://repo.magento.com/
+
+      - name: Install Prestissimo
+        run: composer global require hirak/prestissimo
+        
+      - run: composer require squizlabs/php_codesniffer ~3.4.0 --no-update
+      - run: composer require magento/magento-coding-standard --no-update
+      - run: composer require dealerdirect/phpcodesniffer-composer-installer --no-update
+
+      - run: composer install --no-interaction --no-suggest -o
+
+      - name: Codesniffer
+        uses: mediotype/phpcs-action@v2
+        with:
+          enable_warnings: true     # This is required for magento-coding-standards to function
+          only_changed_files: true
+          phpcs_bin_path: '${{ github.workspace }}/vendor/bin/phpcs --standard=Magento2'
