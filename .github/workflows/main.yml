@@ -47,7 +47,7 @@ jobs:
       - run: composer require magento/magento-coding-standard --no-update
       - run: composer require dealerdirect/phpcodesniffer-composer-installer --no-update
 
-      - run: composer install --no-interaction --dev --no-suggest -o
+      - run: composer install --no-interaction --no-suggest -o
 
       - name: Codesniffer
         uses: mediotype/phpcs-action@v2
